@@ -22,7 +22,7 @@ ImageButton.MouseButton1Down:connect(function()
 	vim:SendKeyEvent(fales, "RightControl", false, game)
 end)
 if game.CoreGui:FindFirstChild("FluxLib") or game.CoreGui:FindFirstChild("Message") then return end
-local Flux = loadstring(game:HttpGet("https://lolcat.boo/assets/flux-fixed"))()
+local Flux = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/fluxlib.txt"))()
 local Window = Flux:Window("YOU HUB", "v2.7.3", Color3.new(7,9.9), Enum.KeyCode.RightControl)
 local Tab = Window:Tab("Main", "rbxassetid://6026568198")
 local Tab2 = Window:Tab("Visual", "rbxassetid://6031763426")
@@ -452,6 +452,12 @@ end)
 Tab:Toggle("Closet Exit Fix","Fixes the bug where you can't exit a closet right after entering it",false,function(Bool)
     ClosetExitFix = Bool
 end)
+Tab:Toggle("Disable Screech","No Screech",false,function(Bool)
+if Bool then
+   for _,Object in pair(workspace.CurrentRooms:GetDestroy() do
+       if Object.Name == "Screech" then
+       
+   
 if Floor.Value == "Hotel" or Floor.Value == "Fools" then
     Tab:Toggle("Disable Dupe Doors","Makes it so you can't open duped doors",false,function(Bool)
         DisableDupe = Bool
@@ -469,10 +475,10 @@ if Floor.Value == "Hotel" or Floor.Value == "Fools" then
             end
         end
     end)
-    Tab:Toggle("Disable Snare And Gates","Makes it so you won't get stunned or take damage from Snare when stepping on it.",false,function(Bool)
+    Tab:Toggle("Disable Snare","Makes it so you won't get stunned or take damage from Snare when stepping on it.",false,function(Bool)
         DisableSnare = Bool
         for _,Object in pairs(workspace.CurrentRooms:GetDescendants()) do
-            if Object.Name == "Snare" > Object.Name == "Gate" then
+            if Object.Name == "Snare" then
                 ApplySettings(Object)
             end
         end
