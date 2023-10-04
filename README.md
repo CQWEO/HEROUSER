@@ -456,8 +456,9 @@ Tab:Toggle("Disable Screech","No Screech",false,function(Bool)
 if Bool then
    for _,Object in pair(workspace.CurrentRooms:GetDestroy() do
        if Object.Name == "Screech" then
-       
-   
+pair(game:GetService("ReplicatedStorage").Entities.Screech:destroy()))
+   end
+end)
 if Floor.Value == "Hotel" or Floor.Value == "Fools" then
     Tab:Toggle("Disable Dupe Doors","Makes it so you can't open duped doors",false,function(Bool)
         DisableDupe = Bool
